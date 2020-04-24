@@ -6,6 +6,18 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
+    has_many :rooms,
+        foreign_key: :owner_id,
+        class_name: :Room
+    
+    has_many :messages,
+        foreign_key: :author_id,
+        class_name: :Message
+
+    has_many :subbed_rooms,
+        through: :messages,
+        source: :room
+
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
         return nil if user.nil?

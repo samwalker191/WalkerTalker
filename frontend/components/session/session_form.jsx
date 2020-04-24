@@ -23,8 +23,6 @@ class SessionForm extends React.Component {
         this.props.action(this.state)
     }
 
-    
-
     componentDidMount() {
         window.scrollTo(0, 0);
     }
