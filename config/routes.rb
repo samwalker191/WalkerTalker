@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   root to: 'static_pages#root'
+  match '*path', to: 'static_pages#root', via: [:get]
 end

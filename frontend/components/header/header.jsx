@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import styles from './header.module.css';
 
 const Header = props => {
     let { currentUserId, currentUser, logout } = props;
@@ -9,7 +10,7 @@ const Header = props => {
             <span>SIGN IN</span>
         </Link>
     } else {
-        authButton = <button className='header-logout' onClick={() => logout()}>
+        authButton = <button className={styles.logout} onClick={() => logout()}>
             <div>
                 {/* {currentUser.username.slice(0, 1).toUpperCase()} */}
                 LOGOUT
@@ -17,8 +18,9 @@ const Header = props => {
             {/* <span>LOGOUT</span> */}
         </button>
     }
+
     return (
-        <div>
+        <div className={styles.header}>
             {authButton}
         </div>
     )
