@@ -62,9 +62,14 @@
     border: 1px solid #FEFCFB;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    width: 100px;
 }
 
 .sessionFormButtons button:hover {
     cursor: pointer;
     background: rgb(58, 148, 173);
+}
+
+.submit {
+    display: none;
 }

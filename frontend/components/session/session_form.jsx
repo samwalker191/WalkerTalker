@@ -32,12 +32,14 @@ class SessionForm extends React.Component {
         let toOtherForm;
         let headerText;
         let demoUserButton;
+        let submitText;
 
         if (this.props.formType === 'Create Your Account') {
             toOtherForm = <Link to="/signin">Sign in instead</Link>;
-            headerText = 'Welcome Back!'
+            submitText = 'Sign up';
         } else if (this.props.formType === 'Welcome Back!') {
             toOtherForm = <Link to="/signup">Create Account</Link>;
+            submitText = 'Sign in';
             demoUserButton = <button onClick={this.handleDemo} className="session-form-demo-button">
                                 Demo
                             </button>
@@ -62,11 +64,12 @@ class SessionForm extends React.Component {
                                 onChange={this.update('password')}
                                 placeholder="Password"
                             />
+                            <input type="submit" className={styles.submit}/>
                         </form>
                     
                         <div className={styles.sessionFormButtons}>
                             {toOtherForm}
-                            <button onClick={this.handleSubmit}>Next</button>
+                            <button onClick={this.handleSubmit}>{submitText}</button>
                         </div>
                 </div>
             </div>
