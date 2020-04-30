@@ -6,19 +6,18 @@ const Splash = () => {
 
     return (
         <div className={styles.splash}>
-            <div>
-                <span>LOGO HERE</span>
-                <Link to='signin'>Sign in</Link>
+            <div className={styles.header}>
+                <Link to='/splash'><img src="https://i.ibb.co/QdBmVXW/walker-talker.png" alt="logo"/></Link>
+                <Link className={styles.signIn} to='signin'>Sign in</Link>
             </div>
             <main>
-                <div>
-                    Walk the walk.
-                    Talk the talk.
-                    WalkerTalker
+                <div className={styles.text}>
+                    <span>Walk the walk</span>
+                    <span>Talk the talk</span>
+                    <Link to='/splash' className={styles.logo}>WalkerTalker</Link>
                 </div>
-                <div>
-                    <Link to='signup'>Join now</Link>
-                </div>
+                <Link to='signup' className={styles.signUp}>Join now</Link>
+                <img src="https://i.ibb.co/N7VZdG4/walking.jpg" alt="walking"/>
             </main>
         </div>
     )
