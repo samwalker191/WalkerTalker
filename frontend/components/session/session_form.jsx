@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import styles from './session_form.module.css';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -30,55 +30,44 @@ class SessionForm extends React.Component {
     render() {
         
         let toOtherForm;
-        let usernameField;
+        let headerText;
         let demoUserButton;
 
         if (this.props.formType === 'Create Your Account') {
             toOtherForm = <Link to="/signin">Sign in instead</Link>;
-            
-        } else if (this.props.formType === 'Sign In') {
+            headerText = 'Welcome Back!'
+        } else if (this.props.formType === 'Welcome Back!') {
             toOtherForm = <Link to="/signup">Create Account</Link>;
             demoUserButton = <button onClick={this.handleDemo} className="session-form-demo-button">
                                 Demo
                             </button>
         }
         return (
-            <div className='session-form-container'>
-                <div className='session-form'>
-                    <div className="session-form-content">
+            <div className={styles.sessionFormContainer}>
+                <div className={styles.sessionForm}>
 
-                        <header className='session-form-header'>
-                            <h3>{this.props.formType}</h3>
-                        </header>
+                        <h3>{this.props.formType}</h3>
 
-                        <form className='session-form-inputs-container' onSubmit={this.handleSubmit}>
+                        <form className={styles.inputs} onSubmit={this.handleSubmit}>
+                            <input
+                                type='text'
+                                value={this.state.username}
+                                onChange={this.update('username')}
+                                placeholder="Username"
+                            />
 
-                            <div>
-                                <input
-                                    type='text'
-                                    value={this.state.username}
-                                    onChange={this.update('username')}
-                                    placeholder="Username"
-                                />
-                            </div>
-
-                            <div>
-                                <input
-                                    type='password'
-                                    value={this.state.password}
-                                    onChange={this.update('password')}
-                                    placeholder="Password"
-                                />
-                            </div>
-
-                            <input type='submit' className='session-form-submit' />
+                            <input
+                                type='password'
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                placeholder="Password"
+                            />
                         </form>
                     
-                        <div className="session-form-buttons">
+                        <div className={styles.sessionFormButtons}>
                             {toOtherForm}
                             <button onClick={this.handleSubmit}>Next</button>
                         </div>
-                    </div>
                 </div>
             </div>
         )

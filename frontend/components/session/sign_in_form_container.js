@@ -4,7 +4,7 @@ import { signin } from '../../actions/session_actions';
 
 const mapSTP = state => {
     return ({
-        formType: 'Sign In'
+        formType: 'Welcome Back!'
     });
 };
 
