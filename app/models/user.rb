@@ -14,8 +14,12 @@ class User < ApplicationRecord
         foreign_key: :author_id,
         class_name: :Message
 
+    has_many :room_memberships,
+        foreign_key: :user_id,
+        class_name: :RoomMembership
+
     has_many :subbed_rooms,
-        through: :messages,
+        through: :room_memberships,
         source: :room
 
     def self.find_by_credentials(username, password)

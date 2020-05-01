@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
+import { fetchRooms } from './actions/room_actions';
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -22,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // begin testing 
     window.store = store;
+    window.fetchRooms = fetchRooms;
     // end testing
     
     ReactDOM.render(<Root store={store}/>, root);

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_231155) do
+ActiveRecord::Schema.define(version: 2020_05_01_071005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,20 @@ ActiveRecord::Schema.define(version: 2020_04_21_231155) do
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 
-  create_table "rooms", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "room_memberships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "room_id"], name: "index_room_memberships_on_user_id_and_room_id", unique: true
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name", null: false
     t.string "password_digest"
-    t.string "#<ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition"
     t.integer "owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["name"], name: "index_rooms_on_name", unique: true
     t.index ["owner_id"], name: "index_rooms_on_owner_id"
   end
