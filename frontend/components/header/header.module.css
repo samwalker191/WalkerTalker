@@ -1,0 +1,24 @@
+.header {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+    background: #1282A2;
+    padding: 3.5vh 2.5vw;
+    border-bottom: 1px solid #FEFCFB;
+}
+
+.authButton {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #FEFCFB;
+    border: 1px solid #FEFCFB;
+    padding: 12px 15px;
+    border-radius: 5px;
+}
+
+.authButton:hover {
+    background: rgb(58, 148, 173);
+    cursor: pointer;
+}

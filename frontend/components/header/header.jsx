@@ -6,21 +6,20 @@ const Header = props => {
     let { currentUserId, currentUser, logout } = props;
     let authButton;
     if (!currentUserId) {
-        authButton = <Link to='/signin' className='header-signin'>
-            <span>SIGN IN</span>
+        authButton = <Link to='/signin' className={styles.authButton}>
+            <span>Sign In</span>
         </Link>
     } else {
-        authButton = <button className={styles.logout} onClick={() => logout()}>
+        authButton = <button className={styles.authButton} onClick={() => logout()}>
             <div>
-                {/* {currentUser.username.slice(0, 1).toUpperCase()} */}
-                LOGOUT
+                Logout
             </div>
-            {/* <span>LOGOUT</span> */}
         </button>
     }
 
     return (
         <div className={styles.header}>
+                <Link to='/splash'><img src="https://i.ibb.co/BLmXKWF/walker-talker-color.png" alt="logo" /></Link>
             {authButton}
         </div>
     )
