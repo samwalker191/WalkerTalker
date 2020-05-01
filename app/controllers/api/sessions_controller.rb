@@ -20,7 +20,7 @@ class Api::SessionsController < ApplicationController
             logout!
             render json: {}
         else
-            render json: ["No urrent user"], status: 422
+            render json: ["No current user"], status: 422
         end
     end
 end

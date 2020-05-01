@@ -4,13 +4,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fefcfb;
+    color: #ffffff;
 }
 
 .sessionForm {
     width: 420px;
     height: 440px;
-    border: 1px solid #fefcfb;
+    border: 1px solid #ffffff;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -28,19 +28,20 @@
 .inputs {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .inputs input {
     padding: 13px 15px;
     border-radius: 4px;
     font-family: inherit;
-    background: #fefcfb;
+    background: #ffffff;
     width: 290px;
     box-shadow: 1px 1px 3px 0px #034078;
 }
 
 .inputs input:first-child {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .inputs input:focus {
@@ -56,10 +57,10 @@
 }
 
 .sessionFormButtons button {
-    color: #FEFCFB;
+    color: #ffffff;
     padding: 15px 20px;
     border-radius: 5px;
-    border: 1px solid #FEFCFB;
+    border: 1px solid #ffffff;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     width: 100px;
@@ -72,4 +73,25 @@
 
 .submit {
     display: none;
+}
+
+.errors {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.errors li {
+    background: red;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 4px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+}
+
+.errors li:first-child {
+    margin-bottom: 8px;
 }
