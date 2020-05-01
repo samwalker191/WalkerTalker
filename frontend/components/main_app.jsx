@@ -9,7 +9,7 @@ const MainApp = () => {
         <div>
             <HeaderContainer />
             <Switch>
-                <Route path='/' component={RoomIndex}/>
+                {/* <Route path='/' component={RoomIndex}/> */}
             </Switch>
         </div>
     )

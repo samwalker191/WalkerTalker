@@ -1,80 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './session_form.module.css';
 
-class SessionForm extends React.Component {
-    constructor(props) {
-        super(props);
+const SessionForm = ({ formType, action, }) => {
+    const [user, setUser] = useState({ username: '', password: '' });
 
-        this.state = { username: '', password: '' };
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    update(field) {
-        return (e) => {
-            this.setState({
-                [field]: e.currentTarget.value
-            })
-        };
-    }
-
-    handleSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state)
+        action(user);
     }
 
-    componentDidMount() {
-        window.scrollTo(0, 0);
+    function update(field) {
+        return e => setUser({ ...user, [field]: e.target.value });
     }
 
-    render() {
-        
-        let toOtherForm;
-        let headerText;
-        let demoUserButton;
-        let submitText;
+    let toOtherForm;
+    // let demoUserButton;
+    let submitText;
 
-        if (this.props.formType === 'Create Your Account') {
-            toOtherForm = <Link to="/signin">Sign in instead</Link>;
-            submitText = 'Sign up';
-        } else if (this.props.formType === 'Welcome Back!') {
-            toOtherForm = <Link to="/signup">Create Account</Link>;
-            submitText = 'Sign in';
-            demoUserButton = <button onClick={this.handleDemo} className="session-form-demo-button">
-                                Demo
-                            </button>
-        }
-        return (
-            <div className={styles.sessionFormContainer}>
-                <div className={styles.sessionForm}>
+    if (formType === 'Create Your Account') {
+        toOtherForm = <Link to="/signin">Sign in instead</Link>;
+        submitText = 'Sign up';
+    } else if (formType === 'Welcome Back!') {
+        toOtherForm = <Link to="/signup">Create Account</Link>;
+        submitText = 'Sign in';
+        // demoUserButton = <button onClick={this.handleDemo} className="session-form-demo-button">
+        //                     Demo
+        //                 </button>
+    }
 
-                        <h3>{this.props.formType}</h3>
+    return (
+        <div className={styles.sessionFormContainer}>
+            <div className={styles.sessionForm}>
 
-                        <form className={styles.inputs} onSubmit={this.handleSubmit}>
-                            <input
-                                type='text'
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                                placeholder="Username"
-                            />
+                <h3>{formType}</h3>
 
-                            <input
-                                type='password'
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                                placeholder="Password"
-                            />
-                            <input type="submit" className={styles.submit}/>
-                        </form>
-                    
-                        <div className={styles.sessionFormButtons}>
-                            {toOtherForm}
-                            <button onClick={this.handleSubmit}>{submitText}</button>
-                        </div>
+                <form className={styles.inputs} onSubmit={handleSubmit}>
+                    <input
+                        type='text'
+                        value={user.username}
+                        onChange={update('username')}
+                        placeholder="Username"
+                    />
+
+                    <input
+                        type='password'
+                        value={user.password}
+                        onChange={update('password')}
+                        placeholder="Password"
+                    />
+                    <input type="submit" className={styles.submit}/>
+                </form>
+
+                <div className={styles.sessionFormButtons}>
+                    {toOtherForm}
+                    <button onClick={handleSubmit}>{submitText}</button>
                 </div>
             </div>
-        )
-    }
-}
+        </div>
+    )
+};
 
 export default SessionForm;
