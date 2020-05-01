@@ -1,2 +1,3 @@
 json.extract! user, :id, :username
-json.roomIds user.room_ids
+json.ownedRoomIds user.room_ids
+json.subbedRoomIds user.subbed_room_ids
