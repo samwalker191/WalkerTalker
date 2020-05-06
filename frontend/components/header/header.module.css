@@ -5,8 +5,12 @@
     align-items: center;
     height: 5vh;
     background: #1282A2;
-    padding: 3.5vh 2.5vw;
+    padding: 3.5vh 0px;
     border-bottom: 1px solid #FEFCFB;
+}
+
+.header a {
+    padding-left: 2.5vw;
 }
 
 .authButton {
@@ -16,6 +20,7 @@
     border: 1px solid #FEFCFB;
     padding: 12px 15px;
     border-radius: 5px;
+    margin-right: 2.5vw;
 }
 
 .authButton:hover {
