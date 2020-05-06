@@ -9,8 +9,8 @@
     border-bottom: 1px solid #FEFCFB;
 }
 
-.header a {
-    padding-left: 2.5vw;
+.logo {
+    padding-left: 2.0vw;
 }
 
 .authButton {
@@ -20,7 +20,7 @@
     border: 1px solid #FEFCFB;
     padding: 12px 15px;
     border-radius: 5px;
-    margin-right: 2.5vw;
+    margin-right: 2.0vw;
 }
 
 .authButton:hover {

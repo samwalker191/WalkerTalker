@@ -19,7 +19,9 @@ const Header = props => {
 
     return (
         <div className={styles.header}>
-            <Link to='/splash'><img src="https://i.ibb.co/BLmXKWF/walker-talker-color.png" alt="logo" /></Link>
+            <Link to='/splash' className={styles.logo}>
+                <img src="https://i.ibb.co/BLmXKWF/walker-talker-color.png" alt="logo" />
+            </Link>
             {authButton}
         </div>
     )
