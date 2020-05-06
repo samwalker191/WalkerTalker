@@ -32,16 +32,40 @@
     cursor: pointer;
 }
 
-.indexContainer ul {
+.header div {
+    position: relative;
+}
+
+.roomList {
     padding: 12px 0;
 }
 
-.indexContainer ul li {
+.roomList li {
     padding: 3px 0;
     padding-left: calc(2.0vw + 5px);
 }
 
-.indexContainer ul li:hover {
+.roomList li:hover {
     background: rgb(58, 148, 173);
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    top: 25px;
+    width: 200px;
+    background: #FEFCFB;
+    color: black;
+    box-shadow: 1px 2px 4px 0px #034078;
+    border-radius: 4px;
+}
+
+.dropdown li {
+    padding: 10px
+}
+
+.dropdown li:hover {
+    background: #1282A2;
+    color: #FEFCFB;
     cursor: pointer;
 }

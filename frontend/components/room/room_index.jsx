@@ -5,18 +5,21 @@ import styles from './room_index.module.css';
 const RoomIndex = ({ rooms, fetchRooms }) => {
     useEffect(() => {
         fetchRooms();
+        document.addEventListener('mousedown', handleDocClick, false);
+        return () => document.removeEventListener('mousedown', handleDocClick, false);
     }, [])
 
     const [showDropdown, setDropdown] = useState(false);
 
     function toggleDropdown() {
-        setDropdown(!!showDropdown);
+        setDropdown(!showDropdown);
     }
 
     function dropdownMenu() {
         if (showDropdown) {
             return (
-                <ul className={styles.dropdown}>
+                <ul className={styles.dropdown} id='room-dropdown'>
+                    <li>Browse Chat Rooms</li>
                     <li>Create Chat Room</li>
                 </ul>
             )
@@ -25,15 +28,27 @@ const RoomIndex = ({ rooms, fetchRooms }) => {
         }
     }
 
+    function handleDocClick(e) {
+        debugger
+        let dropdownBox = document.getElementById('room-dropdown');
+        let userIcon = document.getElementById('add-room');
+        if (e.target !== dropdownBox && !dropdownBox.contains(e.target) && e.target !== userIcon && !userIcon.contains(e.target)) {
+            this.setState({ dropdownHide: true });
+            this.props.toggleDropdownChild(this.state.dropdownHide);
+        }
+    }
+
     if (!rooms[0]) return null; 
     return (
         <div className={styles.indexContainer}>
             <div className={styles.header}>
                 <h2>Chat Rooms</h2>
-                <button>+</button>
+                <div>
+                    <button onClick={toggleDropdown} id='add-room'>+</button>
+                    {dropdownMenu()}
+                </div>
             </div>
-            {dropdownMenu()}
-            <ul>
+            <ul className={styles.roomList}>
                 {rooms.map(room => {
                     return <RoomIndexItem key={room.id} room={room} />
                 })}
