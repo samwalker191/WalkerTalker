@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './room_form.module.css';
 
-const RoomForm = ({ formType, action, currentRoom, closeModal }) => {
+const RoomForm = ({ formType, action, currentRoom, closeModal, roomErrors}) => {
     const [room, setRoom] = useState(currentRoom);
 
     function update(field) {
@@ -36,6 +36,10 @@ const RoomForm = ({ formType, action, currentRoom, closeModal }) => {
 
                 <input type="submit" className={styles.submit}/>
             </form>
+
+            <ul className={styles.errors}>
+                {roomErrors.map((error, id) => <li key={id}>{error}</li>)}
+            </ul>
 
             <div className={styles.roomFormButtons}>
                 <button className={styles.cancelButton} onClick={closeModal}>Cancel</button>
