@@ -4,8 +4,11 @@ import { openModal } from '../../../actions/modal_actions';
 import { allRoomsForCurrentUser } from '../../../selectors/rooms_selectors';
 import RoomIndex from './room_index'
 
-const mSTP = state => ({
-    rooms: allRoomsForCurrentUser(state)
+//{ session, entities: { users, rooms } }
+
+const mSTP = (state) => ({
+    // rooms: allRoomsForCurrentUser(session, users, rooms)
+    rooms: Object.values(state.entities.rooms)
 });
 
 const mDTP = dispatch => ({

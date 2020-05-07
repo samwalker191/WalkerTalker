@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import styles from './room_form.module.css';
 
-const RoomForm = ({ formType, action, currentRoom }) => {
+const RoomForm = ({ formType, action, currentRoom, closeModal }) => {
     const [room, setRoom] = useState(currentRoom);
 
     function update(field) {
@@ -9,13 +10,14 @@ const RoomForm = ({ formType, action, currentRoom }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        action(room);
+        action(room)
+            .then(() => closeModal())
     }
 
     return (
-        <div>
-            <h2>{formType}</h2>
-            <form onSubmit={handleSubmit}>
+        <div className={styles.roomFormContainer}>
+            <h3>{formType}</h3>
+            <form onSubmit={handleSubmit} className={styles.inputs}>
                 <input
                     type="text"
                     value={room.name}
@@ -32,8 +34,13 @@ const RoomForm = ({ formType, action, currentRoom }) => {
                     autoComplete='new-password'
                 />
 
-                <input type="submit" value="Add Room!"/>
+                <input type="submit" className={styles.submit}/>
             </form>
+
+            <div className={styles.roomFormButtons}>
+                <button className={styles.cancelButton} onClick={closeModal}>Cancel</button>
+                <button className={styles.submitButton} onClick={handleSubmit}>Add Room!</button>
+            </div>
         </div>
     );
 };

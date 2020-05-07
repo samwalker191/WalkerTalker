@@ -1,16 +1,9 @@
-.sessionFormContainer {
-    height: 100vh;
-    background: #1282a2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FEFCFB;
-}
-
-.sessionForm {
+.roomFormContainer {
     width: 420px;
     height: 440px;
     border: 1px solid #FEFCFB;
+    background: #1282a2;
+    color: #FEFCFB;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -19,13 +12,13 @@
     box-shadow: 2px 3px 4px 1px #034078;
 }
 
-.sessionForm h3 {
+.roomFormContainer h3 {
     font-size: 34px;
     font-weight: 700;
     text-shadow: 2px 1px 5px #034078;
 }
 
-.inputs {
+.roomFormContainer form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,49 +42,38 @@
     padding: 12px 14px;
 }
 
-.sessionFormButtons {
+.submit {
+    display: none;
+}
+
+.roomFormButtons {
     width: 320px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.sessionFormButtons button {
+.roomFormButtons button {
     color: #FEFCFB;
     padding: 15px 20px;
-    border-radius: 5px;
-    border: 1px solid #FEFCFB;
-    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    width: 100px;
+    font-family: 'Open Sans', sans-serif;
+
 }
 
-.sessionFormButtons button:hover {
+.submitButton {
+    border-radius: 5px;
+    border: 1px solid #FEFCFB;
+    width: 125px;
+}
+
+.submitButton:hover {
     cursor: pointer;
     background: rgb(58, 148, 173);
 }
 
-.submit {
-    display: none;
+.cancelButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
-.errors {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.errors li {
-    background: red;
-    font-size: 14px;
-    color: #FEFCFB;
-    padding: 4px;
-    border: 1px solid #FEFCFB;
-    border-radius: 4px;
-}
-
-.errors li:first-child {
-    margin-bottom: 8px;
-}
