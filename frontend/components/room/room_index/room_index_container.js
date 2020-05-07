@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { fetchRooms } from '../../actions/room_actions';
-import { openModal } from '../../actions/modal_actions';
-import { allRoomsForCurrentUser } from '../../selectors/rooms_selectors';
+import { fetchRooms } from '../../../actions/room_actions';
+import { openModal } from '../../../actions/modal_actions';
+import { allRoomsForCurrentUser } from '../../../selectors/rooms_selectors';
 import RoomIndex from './room_index'
 
 const mSTP = state => ({

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import styles from './modal.module.css';
 
+import CreateRoomContainer from '../room/room_form/create_room_container';
+
 const Modal = ({ modal, closeModal }) => {
     if (!modal) {
         return null;
@@ -10,7 +12,7 @@ const Modal = ({ modal, closeModal }) => {
     let component;
     switch (modal) {
         case 'addRoom':
-            component = <div>HELLO</div>
+            component = <CreateRoomContainer />
             break;
         default:
             return null;

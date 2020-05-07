@@ -4,3 +4,11 @@ export const fetchRooms = () => (
         url: '/api/rooms'
     })
 );
+
+export const createRoom = room => (
+    $.ajax({
+        method: 'POST',
+        url: '/api/rooms',
+        data: { room }
+    })
+);

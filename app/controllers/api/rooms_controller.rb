@@ -9,7 +9,14 @@ class Api::RoomsController < ApplicationController
     end
 
     def create
+        @room = Room.create(room_params)
+        @room.owner_id = current_user.id
 
+        if @room.save
+            render 'api/rooms/show'
+        else
+            render json: @room.errors.full_messages, status: 422
+        end
     end
 
     private
