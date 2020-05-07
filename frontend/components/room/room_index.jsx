@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import RoomIndexItem from './room_index_item';
 import styles from './room_index.module.css';
 
-const RoomIndex = ({ rooms, fetchRooms }) => {
+const RoomIndex = ({ rooms, fetchRooms, openModal }) => {
     
     const [showDropdown, setDropdown] = useState(false);
     
@@ -16,12 +16,17 @@ const RoomIndex = ({ rooms, fetchRooms }) => {
         setDropdown(!showDropdown);
     }
 
+    function handleModal() {
+        setDropdown(false);
+        openModal('addRoom');
+    }
+
     function dropdownMenu() {
         if (showDropdown) {
             return (
                 <ul className={styles.dropdown} id='room-dropdown'>
                     <li>Browse Chat Rooms</li>
-                    <li>Create Chat Room</li>
+                    <li onClick={handleModal}>Create Chat Room</li>
                 </ul>
             )
         } else {
@@ -30,11 +35,12 @@ const RoomIndex = ({ rooms, fetchRooms }) => {
     }
 
     function handleDocClick(e) {
-
         let dropdownBox = document.getElementById('room-dropdown');
         let addRoomButton = document.getElementById('add-room');
         if (!dropdownBox) return null;
         if (e.target !== dropdownBox && !dropdownBox.contains(e.target) && e.target !== addRoomButton && !addRoomButton.contains(e.target)) {
+            // could not pass in !showDropdown to setDropdown because this function was closing over showDropdown. 
+            // Therefore, it was always going to be toggling false to true
             setDropdown(false);
         }
     }
