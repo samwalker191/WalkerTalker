@@ -3,15 +3,16 @@ import RoomIndexItem from './room_index_item';
 import styles from './room_index.module.css';
 
 const RoomIndex = ({ rooms, fetchRooms }) => {
+    
+    const [showDropdown, setDropdown] = useState(false);
+    
     useEffect(() => {
         fetchRooms();
         document.addEventListener('mousedown', handleDocClick, false);
         return () => document.removeEventListener('mousedown', handleDocClick, false);
     }, [])
 
-    const [showDropdown, setDropdown] = useState(false);
-
-    function toggleDropdown() {
+    function toggleDropdown(e) {
         setDropdown(!showDropdown);
     }
 
@@ -29,15 +30,15 @@ const RoomIndex = ({ rooms, fetchRooms }) => {
     }
 
     function handleDocClick(e) {
-        debugger
+
         let dropdownBox = document.getElementById('room-dropdown');
-        let userIcon = document.getElementById('add-room');
-        if (e.target !== dropdownBox && !dropdownBox.contains(e.target) && e.target !== userIcon && !userIcon.contains(e.target)) {
-            this.setState({ dropdownHide: true });
-            this.props.toggleDropdownChild(this.state.dropdownHide);
+        let addRoomButton = document.getElementById('add-room');
+        if (!dropdownBox) return null;
+        if (e.target !== dropdownBox && !dropdownBox.contains(e.target) && e.target !== addRoomButton && !addRoomButton.contains(e.target)) {
+            setDropdown(false);
         }
     }
-
+    
     if (!rooms[0]) return null; 
     return (
         <div className={styles.indexContainer}>
