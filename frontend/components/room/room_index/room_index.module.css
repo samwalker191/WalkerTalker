@@ -38,14 +38,16 @@
 
 .roomList {
     padding: 12px 0;
+    display: flex;
+    flex-direction: column;
 }
 
-.roomList li {
+.roomList a {
     padding: 3px 0;
     padding-left: calc(2.0vw + 5px);
 }
 
-.roomList li:hover {
+.roomList a:hover {
     background: rgb(58, 148, 173);
     cursor: pointer;
 }

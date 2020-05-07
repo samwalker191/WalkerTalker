@@ -1,11 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const RoomIndexItem = ({ room }) => {
 
     return (
-        <li>
-            <span>{room.name}</span>
-        </li>
+        <Link to={`/room/${room.id}`}>{room.name}</Link>
     );
 };
 
