@@ -6,10 +6,11 @@ import RoomIndex from './room_index'
 
 //{ session, entities: { users, rooms } }
 
-const mSTP = (state) => ({
-    // rooms: allRoomsForCurrentUser(session, users, rooms)
-    rooms: Object.values(state.entities.rooms)
-});
+const mSTP = ({ session, entities: { users, rooms } }) => {
+    return ({
+        rooms: allRoomsForCurrentUser(session, users, rooms)
+    })
+};
 
 const mDTP = dispatch => ({
     fetchRooms: () => dispatch(fetchRooms()),

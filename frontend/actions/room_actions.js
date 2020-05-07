@@ -10,9 +10,9 @@ const receiveRooms = rooms => ({
     rooms
 });
 
-const receiveRoom = room => ({
+const receiveRoom = payload => ({
     type: RECEIVE_ROOM,
-    room
+    payload
 });
 
 const receiveRoomErrors = errors => ({

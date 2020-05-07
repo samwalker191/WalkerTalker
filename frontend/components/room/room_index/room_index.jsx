@@ -45,6 +45,7 @@ const RoomIndex = ({ rooms, fetchRooms, openModal }) => {
         }
     }
     
+    debugger;
     if (!rooms[0]) return null; 
     return (
         <div className={styles.indexContainer}>

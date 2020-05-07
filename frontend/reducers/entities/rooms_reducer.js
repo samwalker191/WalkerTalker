@@ -7,7 +7,7 @@ const roomsReducer = (oldState = {}, action) => {
         case RECEIVE_ROOMS:
             return Object.assign({}, oldState, action.rooms);
         case RECEIVE_ROOM:
-            return Object.assign({}, oldState, { [action.room.id]: action.room });
+            return Object.assign({}, oldState, { [action.payload.room.id]: action.payload.room });
         default:
             return oldState;
     }
