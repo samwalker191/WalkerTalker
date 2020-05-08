@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import RoomIndexItem from './room_index_item';
 import styles from './room_index.module.css';
 
-const RoomIndex = ({ rooms, fetchRooms, openModal }) => {
+const RoomIndex = ({ rooms, fetchRooms, openModal, history }) => {
     
     const [showDropdown, setDropdown] = useState(false);
-    
     useEffect(() => {
-        fetchRooms();
+        fetchRooms().then(action => {
+            let firstRoomId = Object.keys(action.rooms)[0];
+            history.push(`/room/${firstRoomId}`);
+        })
         document.addEventListener('mousedown', handleDocClick, false);
         return () => document.removeEventListener('mousedown', handleDocClick, false);
     }, [])
@@ -45,7 +47,6 @@ const RoomIndex = ({ rooms, fetchRooms, openModal }) => {
         }
     }
     
-    debugger;
     if (!rooms[0]) return null; 
     return (
         <div className={styles.indexContainer}>
