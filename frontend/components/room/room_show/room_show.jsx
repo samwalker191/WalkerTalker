@@ -5,7 +5,10 @@ const RoomShow = ({ room, fetchRoom, match }) => {
     useEffect(() => {
         fetchRoom(match.params.roomId);
         App.cable.subscriptions.create(
-            
+            { channel: 'RoomsChannel', id: match.params.roomId },
+            {
+                speak: function (data) { return this.perform("speak", data) }
+            }
         )
     }, [])
 
