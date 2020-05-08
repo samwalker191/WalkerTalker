@@ -5,7 +5,7 @@ class Api::RoomsController < ApplicationController
     end
 
     def show
-
+        @room = Room.find_by(id: params[:id])
     end
 
     def create

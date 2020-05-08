@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import styles from './room_index.module.css';
 
 const RoomIndexItem = ({ room }) => {
 
     return (
-        <Link to={`/room/${room.id}`}>{room.name}</Link>
+        <NavLink activeClassName={styles.active} to={`/room/${room.id}`}>{room.name}</NavLink>
     );
 };
 

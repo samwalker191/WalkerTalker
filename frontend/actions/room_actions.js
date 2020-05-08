@@ -29,6 +29,11 @@ export const fetchRooms = () => dispatch => (
         .then(rooms => dispatch(receiveRooms(rooms)))
 );
 
+export const fetchRoom = roomId => dispatch => (
+    RoomAPIUtil.fetchRoom(roomId)
+        .then(room => dispatch(receiveRoom(room)))
+)
+
 export const createRoom = room => dispatch => (
     RoomAPIUtil.createRoom(room)
         .then(room => dispatch(receiveRoom(room)))

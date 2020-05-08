@@ -5,6 +5,13 @@ export const fetchRooms = () => (
     })
 );
 
+export const fetchRoom = roomId => (
+    $.ajax({
+        method: 'GET',
+        url: `/api/rooms/${roomId}`
+    })
+);
+
 export const createRoom = room => (
     $.ajax({
         method: 'POST',

@@ -71,3 +71,7 @@
     color: #FEFCFB;
     cursor: pointer;
 }
+
+.active {
+    background: rgb(58, 148, 173);
+}
