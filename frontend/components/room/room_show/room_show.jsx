@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './room_show.module.css';
 
-const RoomShow = ({ room, fetchRoom, match }) => {
+const RoomShow = ({ room, fetchRoom, match, messages }) => {
     useEffect(() => {
         fetchRoom(match.params.roomId);
         App.cable.subscriptions.create(
@@ -18,7 +18,7 @@ const RoomShow = ({ room, fetchRoom, match }) => {
             <header>
                 <h3>{room.name}</h3>
             </header>
-            <div>MESSAGE INDEX GOES HERE</div>
+            <div>{}</div>
         </div>
     );
 };

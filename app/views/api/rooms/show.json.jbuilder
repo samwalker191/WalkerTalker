@@ -1,5 +1,5 @@
 json.room do
-    json.extract! @room, :id, :name, :owner_id
+    json.extract! @room, :id, :name, :owner_id, :message_ids
 end
 
 json.user do
