@@ -18,7 +18,7 @@ const RoomShow = ({ room, fetchRoom, match, messages }) => {
             <header>
                 <h3>{room.name}</h3>
             </header>
-            <div>{}</div>
+            <div>{messages}</div>
         </div>
     );
 };
