@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import styles from './room_show.module.css';
 
+import MessageIndex from '../../messages/message_index/message_index';
+
 const RoomShow = ({ room, fetchRoom, match, messages }) => {
     useEffect(() => {
         fetchRoom(match.params.roomId);
@@ -10,7 +12,7 @@ const RoomShow = ({ room, fetchRoom, match, messages }) => {
                 speak: function (data) { return this.perform("speak", data) }
             }
         )
-    }, [])
+    }, []);
 
     if (!room) return null;
     return (
@@ -18,7 +20,7 @@ const RoomShow = ({ room, fetchRoom, match, messages }) => {
             <header>
                 <h3>{room.name}</h3>
             </header>
-            <div>{messages}</div>
+            <MessageIndex messages={messages}/>
         </div>
     );
 };
