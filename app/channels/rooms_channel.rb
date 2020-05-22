@@ -16,6 +16,7 @@ class RoomsChannel < ApplicationCable::Channel
     }
     new_message = Message.create(new_message)
     @room = new_message.room
+    new_message = new_message.attributes.deep_transform_keys! { |key| key.camelize(:lower) }
     # @room = Room.find_by(id: data['room_id'])
     RoomsChannel.broadcast_to(@room, new_message)
   end
