@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './message_form.module.css';
 
-const MessageForm = ({ roomId }) => {
+const MessageForm = ({ roomId, currentUserId }) => {
     const [message, setMessage] = useState('');
 
     function handleMessage(e) {
@@ -10,8 +10,13 @@ const MessageForm = ({ roomId }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        let newMessage = { content: message, roomId };
-        App.cable.subscriptions.subscriptions[0].speak(newMessage);
+        let newMessage = { 
+            content: message,
+            room_id: roomId,
+            current_user_id: currentUserId
+        };
+        App.cable.subscriptions.subscriptions[0].speak(newMessage)
+        setMessage('');
     };
 
     return (
