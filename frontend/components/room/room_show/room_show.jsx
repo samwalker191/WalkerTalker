@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './room_show.module.css';
+import connect from '../../../util/connect_util';
 
 import MessageIndex from '../../messages/message_index/message_index';
 import MessageForm from '../../messages/message_form/message_form';
@@ -7,14 +8,10 @@ import MessageForm from '../../messages/message_form/message_form';
 const RoomShow = ({ room, fetchRoom, match, messages, currentUserId, receiveMessage }) => {
     useEffect(() => {
         fetchRoom(match.params.roomId);
-        App.cable.subscriptions.create(
-            { channel: 'RoomsChannel', id: match.params.roomId },
-            {
-                speak: function (data) { return this.perform("speak", data); },
-                received: function (message) { receiveMessage(message); }
-            }
-        )
+        connect(match.params.roomId, receiveMessage);
     }, []);
+
+    
 
     if (!room) return null;
     return (
