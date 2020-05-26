@@ -8,9 +8,10 @@ json.user do
 end
 
 json.messages do
-    @room.messages.each do |message|
+    @room.messages.includes(:author).each do |message|
         json.set! message.id do
             json.extract! message, :id, :content, :author_id, :room_id
+            json.author_name message.author.username
         end
     end
 end
