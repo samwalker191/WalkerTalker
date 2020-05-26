@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchRoom } from '../../../actions/room_actions';
+import { fetchRoom, clearMessageNotification } from '../../../actions/room_actions';
 import { receiveMessage } from '../../../actions/message_actions';
 import { messagesByRoom } from '../../../selectors/messages_selectors';
 import RoomShow from './room_show';
@@ -18,7 +18,8 @@ const mSTP = ({
 
 const mDTP = dispatch => ({
     fetchRoom: roomId => dispatch(fetchRoom(roomId)),
-    receiveMessage: message => dispatch(receiveMessage(message))
+    receiveMessage: message => dispatch(receiveMessage(message)),
+    clearMessageNotification: roomId => dispatch(clearMessageNotification(roomId))
 });
 
 export default connect(mSTP, mDTP)(RoomShow);

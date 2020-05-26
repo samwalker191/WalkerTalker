@@ -1,12 +1,18 @@
 
-const connect = (roomId, action) => {
+const connect = (roomId, receiveMessage, receiveMyMessage, currentUserId) => {
     App.cable.subscriptions.create(
         { channel: 'RoomsChannel', id: roomId },
         {
             speak: function (data) {
                 return this.perform("speak", data); 
             },
-            received: function (message) { action(message); }
+            received: function (message) { 
+                if (currentUserId === message.authorId) {
+                    receiveMyMessage(message);
+                } else {
+                    receiveMessage(message); 
+                }
+            }
         }
     );
 };

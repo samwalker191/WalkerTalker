@@ -72,6 +72,11 @@
     cursor: pointer;
 }
 
+.notified {
+    font-weight: bold;
+}
+
 .active {
     background: rgb(58, 148, 173);
+    font-weight: 400;
 }

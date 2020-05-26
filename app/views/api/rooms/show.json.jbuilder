@@ -1,5 +1,6 @@
 json.room do
     json.extract! @room, :id, :name, :owner_id, :message_ids
+    json.new_message false
 end
 
 json.user do

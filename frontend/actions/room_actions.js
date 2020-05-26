@@ -3,6 +3,7 @@ import * as RoomAPIUtil from '../util/room_api_util';
 export const RECEIVE_ROOMS = 'RECEIVE_ROOMS';
 export const RECEIVE_ROOM = 'RECEIVE_ROOM';
 export const RECEIVE_ROOM_ERRORS = 'RECEIVE_ROOM_ERRORS';
+export const CLEAR_MESSAGE_NOTIFICATION = "CLEAR_MESSAGE_NOTIFICATION";
 export const CLEAR_ROOM_ERRORS = 'CLEAR_ROOM_ERRORS';
 
 const receiveRooms = rooms => ({
@@ -18,6 +19,11 @@ const receiveRoom = payload => ({
 const receiveRoomErrors = errors => ({
     type: RECEIVE_ROOM_ERRORS,
     errors
+});
+
+export const clearMessageNotification = roomId => ({
+    type: CLEAR_MESSAGE_NOTIFICATION,
+    roomId
 });
 
 export const clearRoomErrors = () => ({

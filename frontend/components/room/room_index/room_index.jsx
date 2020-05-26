@@ -9,9 +9,10 @@ const RoomIndex = ({
     fetchRooms, 
     openModal, 
     history, 
-    receiveMessage
+    receiveMessage, 
+    receiveMyMessage,
+    currentUserId
 }) => {
-    const [prevNumRooms, setPrevNumRooms] = useState(0);
     const [alreadyConnected, setAlreadyConnected] = useState(false);
     const [showDropdown, setDropdown] = useState(false);
 
@@ -27,16 +28,13 @@ const RoomIndex = ({
     useEffect(() => {
         if (rooms[0]) {
             if (!alreadyConnected) {
-                setPrevNumRooms(rooms.length);
                 setAlreadyConnected(true);
                 rooms.forEach(room => {
-                    connect(room.id, receiveMessage);
+                    connect(room.id, receiveMessage, receiveMyMessage, currentUserId);
                 });
             }
         }
     }, [rooms])
-
-
 
     function toggleDropdown(e) {
         setDropdown(!showDropdown);
