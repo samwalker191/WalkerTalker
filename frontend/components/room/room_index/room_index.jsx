@@ -2,9 +2,19 @@ import React, { useEffect, useState } from 'react'
 import RoomIndexItem from './room_index_item';
 import styles from './room_index.module.css';
 
-const RoomIndex = ({ rooms, fetchRooms, openModal, history }) => {
-    
+import connect from '../../../util/connect_util';
+
+const RoomIndex = ({ 
+    rooms, 
+    fetchRooms, 
+    openModal, 
+    history, 
+    receiveMessage
+}) => {
+    const [prevNumRooms, setPrevNumRooms] = useState(0);
+    const [alreadyConnected, setAlreadyConnected] = useState(false);
     const [showDropdown, setDropdown] = useState(false);
+
     useEffect(() => {
         fetchRooms().then(action => {
             let firstRoomId = Object.keys(action.rooms)[0];
@@ -13,6 +23,20 @@ const RoomIndex = ({ rooms, fetchRooms, openModal, history }) => {
         document.addEventListener('mousedown', handleDocClick, false);
         return () => document.removeEventListener('mousedown', handleDocClick, false);
     }, [])
+
+    useEffect(() => {
+        if (rooms[0]) {
+            if (!alreadyConnected) {
+                setPrevNumRooms(rooms.length);
+                setAlreadyConnected(true);
+                rooms.forEach(room => {
+                    connect(room.id, receiveMessage);
+                });
+            }
+        }
+    }, [rooms])
+
+
 
     function toggleDropdown(e) {
         setDropdown(!showDropdown);

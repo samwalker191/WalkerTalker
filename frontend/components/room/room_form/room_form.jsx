@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styles from './room_form.module.css';
 
-const RoomForm = ({ formType, action, currentRoom, closeModal, roomErrors}) => {
+import connect from '../../../util/connect_util';
+
+const RoomForm = ({ formType, action, currentRoom, closeModal, roomErrors, receiveMessage }) => {
     const [room, setRoom] = useState(currentRoom);
 
     function update(field) {
@@ -11,7 +13,10 @@ const RoomForm = ({ formType, action, currentRoom, closeModal, roomErrors}) => {
     function handleSubmit(e) {
         e.preventDefault();
         action(room)
-            .then(() => closeModal())
+            .then((action) => {
+                connect(action.payload.room.id, receiveMessage);
+                closeModal();
+            });
     }
 
     return (

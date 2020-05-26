@@ -11,7 +11,9 @@ const roomsReducer = (oldState = {}, action) => {
             return Object.assign({}, oldState, { [action.payload.room.id]: action.payload.room });
         case RECEIVE_MESSAGE:
             let room = nextState[action.message.roomId];
-            room.messageIds.push(action.message.id);
+            if (room.messageIds) {
+                room.messageIds.push(action.message.id);
+            }
             return nextState;
         default:
             return oldState;

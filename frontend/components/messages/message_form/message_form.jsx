@@ -3,6 +3,8 @@ import styles from './message_form.module.css';
 
 const MessageForm = ({ roomId, currentUserId }) => {
     const [message, setMessage] = useState('');
+    const [subscription, setSubscription] = App.cable.subscriptions.subscriptions
+        .filter(sub => JSON.parse(sub.identifier).id === roomId);
 
     function handleMessage(e) {
         setMessage(e.currentTarget.value);
@@ -13,9 +15,9 @@ const MessageForm = ({ roomId, currentUserId }) => {
         let newMessage = { 
             content: message,
             room_id: roomId,
-            current_user_id: currentUserId
+            current_user_id: currentUserId,
         };
-        App.cable.subscriptions.subscriptions[0].speak(newMessage)
+        subscription.speak(newMessage);
         setMessage('');
     };
 

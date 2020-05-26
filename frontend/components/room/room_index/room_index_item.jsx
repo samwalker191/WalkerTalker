@@ -5,7 +5,12 @@ import styles from './room_index.module.css';
 const RoomIndexItem = ({ room }) => {
 
     return (
-        <NavLink activeClassName={styles.active} to={`/room/${room.id}`}>{room.name}</NavLink>
+        <NavLink 
+            activeClassName={styles.active} 
+            to={`/room/${room.id}`}
+        >
+            {room.name}
+        </NavLink>
     );
 };
 
