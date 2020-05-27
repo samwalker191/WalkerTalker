@@ -16,6 +16,7 @@ const RoomShow = ({ room, fetchRoom, match, messages, currentUserId, clearMessag
     
     useEffect(() => {
         fetchRoom(match.params.roomId)
+        
         if (prevRoomId) {
             clearMessageNotification(prevRoomId);
         }
@@ -23,7 +24,7 @@ const RoomShow = ({ room, fetchRoom, match, messages, currentUserId, clearMessag
 
     if (!room) return null;
     return (
-        <div className={styles.roomShowContainer}>
+        <div id='room-show' className={styles.roomShowContainer}>
             <header>
                 <h3>{room.name}</h3>
             </header>

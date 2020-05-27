@@ -1,6 +1,5 @@
 class RoomsChannel < ApplicationCable::Channel
   def subscribed
-    # just have this stream for one channel == less connections needed
     @room = Room.find_by(id: params[:id])
     stream_for @room
   end
