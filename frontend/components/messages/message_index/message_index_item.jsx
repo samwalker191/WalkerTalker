@@ -4,12 +4,11 @@ import styles from './message_index.module.css';
 const MessageIndexItem = ({ message }) => {
 
     return (
-        <li>
-            <span>{message.authorName}: </span>
-            <span>{message.content}</span>
-            
+        <li className={styles.message}>
+            <h4>{message.authorName}: </h4>
+            <p>{message.content}</p>
         </li>
-    )
+    );
 };
 
 export default MessageIndexItem;

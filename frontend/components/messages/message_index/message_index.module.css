@@ -1,0 +1,20 @@
+.messageIndex {
+    height: calc(50px + 72vh);
+    overflow-y: scroll;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 15px;
+    height: 38px;
+}
+
+.message:hover {
+    background: rgba(58, 148, 173, 0.1);
+}
+
+.message h4 {
+    font-weight: bold;
+}

@@ -17,8 +17,10 @@ class RoomsChannel < ApplicationCable::Channel
     }
     new_message = Message.create(new_message)
     @room = new_message.room
+    author_name = new_message.author.username
     new_message = new_message.attributes.deep_transform_keys! { |key| key.camelize(:lower) }
-    # @room = Room.find_by(id: data['room_id'])
+    new_message['authorName'] = author_name
+
     RoomsChannel.broadcast_to(@room, new_message)
   end
 end
