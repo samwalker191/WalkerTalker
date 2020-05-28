@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from './message_form.module.css';
 
-const MessageForm = ({ roomId, currentUserId }) => {
+const MessageForm = ({ room, currentUserId }) => {
     const [message, setMessage] = useState('');
     const [subscription, setSubscription] = App.cable.subscriptions.subscriptions
-        .filter(sub => JSON.parse(sub.identifier).id === roomId);
+        .filter(sub => JSON.parse(sub.identifier).id === room.id);
 
     function handleMessage(e) {
         setMessage(e.currentTarget.value);
@@ -14,7 +14,7 @@ const MessageForm = ({ roomId, currentUserId }) => {
         e.preventDefault();
         let newMessage = { 
             content: message,
-            room_id: roomId,
+            room_id: room.id,
             current_user_id: currentUserId,
         };
         subscription.speak(newMessage);
@@ -22,15 +22,15 @@ const MessageForm = ({ roomId, currentUserId }) => {
     };
 
     return (
-        <div>
-            MESSAGE FORM
+        <div className={styles.messageFormContainer}>
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text"
                     value={message}
                     onChange={handleMessage}
+                    placeholder={`Message ${room.name}`}
                 />
-                <input type="submit"/>
+                <input type="submit" className={styles.submit}/>
             </form>
         </div>
     );

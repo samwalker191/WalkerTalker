@@ -3,6 +3,7 @@
     flex-direction: column;
     width: calc(100% - (2.0vw + 180px + 2.0vw));
     color: #034078;
+    height: 93vh;
 }
 
 .roomShowContainer header {

@@ -30,7 +30,7 @@ const RoomShow = ({ room, fetchRoom, match, messages, currentUserId, clearMessag
             </header>
             <MessageIndex messages={messages} />
             <MessageForm 
-                roomId={room.id} 
+                room={room} 
                 currentUserId={currentUserId} 
                 activeRoomId={match.params.roomId}
             />

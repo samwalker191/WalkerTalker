@@ -1,0 +1,21 @@
+.messageFormContainer form {
+    border: 1px solid #034078;
+    border-radius: 4px;
+    margin: 0 15px 15px 15px;
+}
+
+.messageFormContainer form input {
+    color: #034078;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.messageFormContainer form input::placeholder {
+    color: #0340789a;
+}
+
+.submit {
+    display: none;
+}
