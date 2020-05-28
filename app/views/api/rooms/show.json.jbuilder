@@ -10,7 +10,7 @@ end
 json.messages do
     @room.messages.includes(:author).each do |message|
         json.set! message.id do
-            json.extract! message, :id, :content, :author_id, :room_id
+            json.extract! message, :id, :content, :author_id, :room_id, :created_at
             json.author_name message.author.username
         end
     end

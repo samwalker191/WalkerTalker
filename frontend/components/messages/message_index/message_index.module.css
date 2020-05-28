@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 10px 15px;
-    height: 38px;
+    height: 42px;
 }
 
 .message:hover {
@@ -17,4 +17,16 @@
 
 .message h4 {
     font-weight: bold;
+    font-size: 18px;
+}
+
+.messageHeader {
+    display: flex;
+}
+
+.messageHeader span {
+    font-size: 10px;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 8px;
 }
