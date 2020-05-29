@@ -4,6 +4,10 @@ class Api::RoomsController < ApplicationController
         @rooms = current_user.rooms + current_user.subbed_rooms
     end
 
+    def search
+        
+    end
+
     def show
         @room = Room.find_by(id: params[:id])
     end
