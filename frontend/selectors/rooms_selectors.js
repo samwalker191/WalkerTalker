@@ -8,7 +8,10 @@ export const subbedRoomsForCurrentUser = (session, users, rooms) => {
     return subbedRoomIds.map(roomId => rooms[roomId]);
 };
 
-
 export const allRoomsForCurrentUser = (session, users, rooms) => {
     return ownedRoomsForCurrentUser(session, users, rooms).concat(subbedRoomsForCurrentUser(session, users, rooms));
 };
+
+export const searchedRoomsByIds = (roomIds, rooms) => {
+    return roomIds.map(id => rooms[id]);
+}
