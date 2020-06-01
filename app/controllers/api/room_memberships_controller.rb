@@ -13,7 +13,13 @@ class Api::RoomMembershipsController < ApplicationController
     end
 
     def destroy
+        membership = RoomMembership.find_by(id: params[:id])
 
+        if membership
+            membership.destroy
+            render json: ['hi']
+        else
+        end
     end
 
     private
