@@ -27,3 +27,14 @@
     background: rgb(58, 148, 173);
     cursor: pointer;
 }
+
+.logout {
+    display: flex;
+    align-items: center;
+}
+
+.logout span {
+    color: #FEFCFB;
+    font-size: 18px;
+    margin-right: 20px;
+}

@@ -16,11 +16,14 @@ const Header = props => {
             <span>Sign In</span>
         </Link>
     } else {
-        authButton = <button className={styles.authButton} onClick={handleLogout}>
-            <div>
-                Logout
-            </div>
-        </button>
+        authButton = <div className={styles.logout}>
+            <span>Hello, {currentUser.username}</span>
+            <button className={styles.authButton} onClick={handleLogout}>
+                <div>
+                    Logout
+                </div>
+            </button>
+        </div>
     }
 
     return (
@@ -28,7 +31,9 @@ const Header = props => {
             <Link to='/splash' className={styles.logo}>
                 <img src="https://i.ibb.co/BLmXKWF/walker-talker-color.png" alt="logo" />
             </Link>
-            {authButton}
+            <div>
+                {authButton}
+            </div>
         </div>
     )
 };
