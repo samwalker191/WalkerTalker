@@ -7,7 +7,6 @@ const Header = props => {
     let authButton;
 
     function handleLogout() {
-        debugger
         App.cable.subscriptions.subscriptions.forEach(sub => sub.unsubscribe());
         logout();
     };
