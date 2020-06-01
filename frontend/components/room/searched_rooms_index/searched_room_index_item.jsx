@@ -1,9 +1,11 @@
 import React from 'react';
 
-const SearchedRoomIndexItem = ({ room }) => {
-
+const SearchedRoomIndexItem = ({ room, joinRoom }) => {
     return (
-        <li>{room.name}</li>
+        <li>
+            <span>{room.name}</span>
+            <button onClick={() => joinRoom(room.id)}>Join</button>
+        </li>
     );
 };
 

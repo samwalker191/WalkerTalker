@@ -57,3 +57,8 @@ export const createRoom = room => dispatch => (
         .then(room => dispatch(receiveRoom(room)))
         .fail(errors => dispatch(receiveRoomErrors(errors.responseJSON)))
 );
+
+export const joinRoom = roomId => dispatch => (
+    RoomAPIUtil.joinRoom(roomId)
+        .then(room => dispatch(receiveRoom(room)))
+);

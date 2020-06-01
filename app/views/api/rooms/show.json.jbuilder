@@ -4,7 +4,7 @@ json.room do
 end
 
 json.user do
-    json.partial! 'api/users/user', user: @room.owner
+    json.partial! 'api/users/user', user: current_user
 end
 
 json.messages do

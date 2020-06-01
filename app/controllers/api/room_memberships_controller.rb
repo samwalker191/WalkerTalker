@@ -1,7 +1,8 @@
 class Api::RoomMembershipsController < ApplicationController
 
     def create
-        membership = RoomMembership.new(room_membership_params)
+        membership = RoomMembership.new(room_id: params[:roomId])
+        membership.user_id = current_user.id
         
         if membership.save
             @room = membership.room
@@ -18,6 +19,6 @@ class Api::RoomMembershipsController < ApplicationController
     private
 
     def room_membership_params
-        params.require(:room_membership).permit(:user_id, :room_id)
+        params.require(:room_membership).permit(:roomId)
     end
 end

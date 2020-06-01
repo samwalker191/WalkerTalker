@@ -26,3 +26,11 @@ export const searchRooms = query => (
         url: `/api/search/${query}`
     })
 );
+
+export const joinRoom = roomId => (
+    $.ajax({
+        method: 'POST',
+        url: '/api/room_memberships',
+        data: { roomId },
+    })
+);

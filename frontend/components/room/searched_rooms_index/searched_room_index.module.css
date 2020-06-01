@@ -34,13 +34,29 @@
 }
 
 .searchResults li {
-    padding: 20px 12px;
+    padding: 18px 12px;
     color: #034078;
     font-weight: bold;
-    border-bottom: 1px solid #034078;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .searchResults li:hover {
     background: rgba(58, 148, 173, 0.1)
+}
+
+.searchResults li button {
+    background: #1282A2;
+    color: #FEFCFB;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.searchResults li button:hover {
+    background: rgb(58, 148, 173);
+    cursor: pointer;
 }
 

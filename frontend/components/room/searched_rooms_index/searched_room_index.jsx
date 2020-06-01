@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchedRoomIndexItem from './searched_room_index_item';
 import styles from './searched_room_index.module.css';
 
-const SearchedRoomIndex = ({ rooms, searchRooms, closeModal }) => {
+const SearchedRoomIndex = ({ rooms, searchRooms, closeModal, joinRoom }) => {
     const [query, setQuery] = useState('');
     useEffect(() => {
         if (query) {
@@ -16,7 +16,8 @@ const SearchedRoomIndex = ({ rooms, searchRooms, closeModal }) => {
                 <ul className={styles.searchResults}>
                     {rooms.map(room => {
                         return <SearchedRoomIndexItem 
-                            room={room} 
+                            room={room}
+                            joinRoom={joinRoom} 
                             key={room.id} 
                         />
                     })}
