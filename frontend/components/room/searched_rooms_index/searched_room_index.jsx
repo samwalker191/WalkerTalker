@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SearchedRoomIndex = props => {
-
+const SearchedRoomIndex = ({ rooms }) => {
+    
     return (
         <div>SEARCHED ROOMS</div>
     );

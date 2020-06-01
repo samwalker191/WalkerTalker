@@ -40,17 +40,20 @@ const RoomIndex = ({
         setDropdown(!showDropdown);
     }
 
-    function handleModal() {
-        setDropdown(false);
-        openModal('addRoom');
+    function handleModal(modal) {
+
+        return e => {
+            setDropdown(false);
+            openModal(modal);
+        }
     }
 
     function dropdownMenu() {
         if (showDropdown) {
             return (
                 <ul className={styles.dropdown} id='room-dropdown'>
-                    <li>Browse Chat Rooms</li>
-                    <li onClick={handleModal}>Create Chat Room</li>
+                    <li onClick={handleModal('searchRooms')}>Browse Chat Rooms</li>
+                    <li onClick={handleModal('addRoom')}>Create Chat Room</li>
                 </ul>
             )
         } else {

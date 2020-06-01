@@ -4,6 +4,7 @@ import { closeModal } from '../../actions/modal_actions';
 import styles from './modal.module.css';
 
 import CreateRoomContainer from '../room/room_form/create_room_container';
+import SearchedRoomIndexContainer from '../room/searched_rooms_index/searched_room_index_container'
 
 const Modal = ({ modal, closeModal }) => {
     if (!modal) {
@@ -13,6 +14,9 @@ const Modal = ({ modal, closeModal }) => {
     switch (modal) {
         case 'addRoom':
             component = <CreateRoomContainer />
+            break;
+        case 'searchRooms':
+            component = <SearchedRoomIndexContainer />
             break;
         default:
             return null;
