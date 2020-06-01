@@ -17,7 +17,9 @@ const SearchedRoomIndex = ({ rooms, searchRooms, closeModal, joinRoom }) => {
                     {rooms.map(room => {
                         return <SearchedRoomIndexItem 
                             room={room}
-                            joinRoom={joinRoom} 
+                            joinRoom={joinRoom}
+                            searchRooms={searchRooms}
+                            query={query} 
                             key={room.id} 
                         />
                     })}
