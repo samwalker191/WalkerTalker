@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react';
 import SearchedRoomIndexItem from './searched_room_index_item';
 import styles from './searched_room_index.module.css';
 
-const SearchedRoomIndex = ({ rooms, searchRooms, closeModal, joinRoom }) => {
+const SearchedRoomIndex = ({ 
+    rooms, 
+    searchRooms, 
+    closeModal, 
+    joinRoom,
+    receiveMessage,
+    receiveMyMessage,
+    currentUserId 
+}) => {
     const [query, setQuery] = useState('');
     useEffect(() => {
         if (query) {
@@ -19,7 +27,10 @@ const SearchedRoomIndex = ({ rooms, searchRooms, closeModal, joinRoom }) => {
                             room={room}
                             joinRoom={joinRoom}
                             searchRooms={searchRooms}
-                            query={query} 
+                            query={query}
+                            receiveMessage={receiveMessage}
+                            receiveMyMessage={receiveMyMessage}
+                            currentUserId={currentUserId} 
                             key={room.id} 
                         />
                     })}
