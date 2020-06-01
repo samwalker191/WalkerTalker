@@ -5,7 +5,7 @@ class User < ApplicationRecord
     attr_reader :password
 
     after_initialize :ensure_session_token
-    after_create :join_general_channel
+    # after_create :join_general_channel
 
     has_many :rooms,
         foreign_key: :owner_id,
