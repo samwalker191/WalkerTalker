@@ -1,4 +1,9 @@
-import { RECEIVE_ROOMS, RECEIVE_ROOM, CLEAR_MESSAGE_NOTIFICATION } from '../../actions/room_actions';
+import { 
+    RECEIVE_ROOMS,
+    RECEIVE_SEARCHED_ROOMS, 
+    RECEIVE_ROOM, 
+    CLEAR_MESSAGE_NOTIFICATION 
+} from '../../actions/room_actions';
 import { RECEIVE_MESSAGE, RECEIVE_MY_MESSAGE } from '../../actions/message_actions';
 
 const roomsReducer = (oldState = {}, action) => {
@@ -6,6 +11,7 @@ const roomsReducer = (oldState = {}, action) => {
     let nextState = { ...oldState };
     let room;
     switch (action.type) {
+        case RECEIVE_SEARCHED_ROOMS:
         case RECEIVE_ROOMS:
             return Object.assign({}, oldState, action.rooms);
         case RECEIVE_ROOM:
