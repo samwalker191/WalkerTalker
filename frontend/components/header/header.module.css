@@ -21,9 +21,26 @@
     padding: 12px 15px;
     border-radius: 5px;
     margin-right: 2.0vw;
+    min-width: 84px;
 }
 
 .authButton:hover {
+    background: rgb(58, 148, 173);
+    cursor: pointer;
+}
+
+.login {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #FEFCFB;
+    border: 1px solid #FEFCFB;
+    padding: 9px 15px;
+    border-radius: 5px;
+    margin-right: 2.0vw;
+    min-width: 84px;
+}
+
+.login:hover {
     background: rgb(58, 148, 173);
     cursor: pointer;
 }

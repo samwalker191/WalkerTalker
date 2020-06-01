@@ -12,7 +12,7 @@ const Header = props => {
     };
 
     if (!currentUserId) {
-        authButton = <Link to='/signin' className={styles.authButton}>
+        authButton = <Link to='/signin' className={styles.login}>
             <span>Sign In</span>
         </Link>
     } else {

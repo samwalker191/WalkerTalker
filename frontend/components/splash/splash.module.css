@@ -24,17 +24,6 @@
     border-bottom: 1px solid #FEFCFB;
 }
 
-.signIn {
-    color: #FEFCFB;
-    border: 1px solid #FEFCFB;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-.signIn:hover {
-    background: rgb(58, 148, 173)
-}
-
 .text {
     display: flex;
     flex-direction: column;
