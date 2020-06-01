@@ -5,7 +5,10 @@ class Api::RoomsController < ApplicationController
     end
 
     def search
-        
+        query = params['query'] || ''
+        formatted_query = '%' + query.downcase + '%'
+        @rooms = Room.where('lower(rooms.name) like ?', formatted_query)
+        render :search
     end
 
     def show
