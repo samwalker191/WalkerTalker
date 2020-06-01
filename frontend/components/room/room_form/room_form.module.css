@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    box-shadow: 2px 3px 4px 1px #034078;
+    box-shadow: 2px 2px 2px 1px #034078;
 }
 
 .roomFormContainer h3 {

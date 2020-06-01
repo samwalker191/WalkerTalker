@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :rooms, only: [:create, :index, :show]
     resources :room_memberships, only: [:create, :destroy]
-    get '/rooms/search/:query', to: 'rooms#search'
+    get '/search/:query', to: 'rooms#search'
   end
 
   mount ActionCable.server => '/cable'

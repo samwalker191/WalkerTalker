@@ -23,6 +23,6 @@ export const createRoom = room => (
 export const searchRooms = query => (
     $.ajax({
         method: 'GET',
-        url: `/api/rooms/search/${query}`
+        url: `/api/search/${query}`
     })
 );
