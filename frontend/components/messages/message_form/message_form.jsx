@@ -17,7 +17,6 @@ const MessageForm = ({ room, currentUserId }) => {
             room_id: room.id,
             current_user_id: currentUserId,
         };
-        debugger
         subscription.speak(newMessage);
         setMessage('');
     };

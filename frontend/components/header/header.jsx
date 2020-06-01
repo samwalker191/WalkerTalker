@@ -5,12 +5,19 @@ import styles from './header.module.css';
 const Header = props => {
     let { currentUserId, currentUser, logout } = props;
     let authButton;
+
+    function handleLogout() {
+        debugger
+        App.cable.subscriptions.subscriptions.forEach(sub => sub.unsubscribe());
+        logout();
+    };
+
     if (!currentUserId) {
         authButton = <Link to='/signin' className={styles.authButton}>
             <span>Sign In</span>
         </Link>
     } else {
-        authButton = <button className={styles.authButton} onClick={() => logout()}>
+        authButton = <button className={styles.authButton} onClick={handleLogout}>
             <div>
                 Logout
             </div>

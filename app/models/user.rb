@@ -5,6 +5,7 @@ class User < ApplicationRecord
     attr_reader :password
 
     after_initialize :ensure_session_token
+    after_create :join_general_channel
 
     has_many :rooms,
         foreign_key: :owner_id,
@@ -45,6 +46,11 @@ class User < ApplicationRecord
         self.session_token = SecureRandom.urlsafe_base64
         self.save!
         self.session_token
+    end
+
+    def join_general_channel
+        room = Room.find_by(name: 'general')
+        RoomMembership.create(room_id: room.id, user_id: self.id)
     end
 
 end
