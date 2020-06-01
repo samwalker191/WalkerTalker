@@ -13,7 +13,7 @@ class Api::RoomsController < ApplicationController
             .includes(:messages)
             .where('lower(rooms.name) like ?', formatted_query)
             .where.not(owner_id: current_user.id)
-            .where(room_memberships: { user_id: nil })
+            .where('room_memberships.user_id != ? OR room_memberships.user_id IS NULL', current_user.id)
 
         render :search
     end
