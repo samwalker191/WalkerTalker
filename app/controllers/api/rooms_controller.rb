@@ -7,7 +7,14 @@ class Api::RoomsController < ApplicationController
     def search
         query = params['query'] || ''
         formatted_query = '%' + query.downcase + '%'
-        @rooms = Room.where('lower(rooms.name) like ?', formatted_query)
+
+        @rooms = Room
+            .left_outer_joins(:members)
+            .includes(:messages)
+            .where('lower(rooms.name) like ?', formatted_query)
+            .where.not(owner_id: current_user.id)
+            .where(room_memberships: { user_id: nil })
+
         render :search
     end
 
