@@ -23,6 +23,7 @@ const RoomShow = ({ room, fetchRoom, match, messages, currentUserId, clearMessag
     }, [match.params.roomId]);
 
     if (!room) return null;
+    if (!messages[0]) return null;
     return (
         <div id='room-show' className={styles.roomShowContainer}>
             <header>

@@ -7,7 +7,7 @@ const MessageIndex = ({ messages }) => {
         let messageIndexContainer = document.getElementById('message-index');
         messageIndexContainer.scrollTop = messageIndexContainer.scrollHeight;
     }, [messages]);
-    
+    debugger
     return (
         <ul id='message-index' className={styles.messageIndex}>
             {messages.map(message => {
